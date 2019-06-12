@@ -23,6 +23,7 @@ steps:
   displayName: 'Create prerelease packages'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Push prerelease packages'
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/pre/*.nupkg'
