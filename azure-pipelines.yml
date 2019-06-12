@@ -6,6 +6,11 @@
 trigger:
 - master
 
+variables:
+  version: "1.0.0"
+  
+name: $(version)-$(Date:yyyyMMdd)$(Rev:.rrr)-$(Build.SourceBranchName)
+
 pool:
   vmImage: 'ubuntu-latest'
 
