@@ -1,0 +1,3 @@
+A simple set of tools that kind of wraps Jimmy Bogard's excellent [MediatR](https://github.com/jbogard/MediatR) behind an ASP.NET Core request handler, some serialization and other stuff.
+
+Very much an experiment. Intended for use in Blazor client side apps to make it easy sending MediatR requests to an HTTP endpoint...
