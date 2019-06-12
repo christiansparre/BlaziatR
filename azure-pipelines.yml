@@ -22,5 +22,9 @@ steps:
     dotnet pack ./src/BlaziatR.Server/BlaziatR.Server.csproj --output $(Build.ArtifactStagingDirectory)/pre /p:PackageVersion=$(Build.BuildNumber)
   displayName: 'Create prerelease packages'
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish artifacts'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/pre/*.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'MyGet - sparre.io - ci'
