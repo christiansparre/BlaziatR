@@ -22,7 +22,7 @@ steps:
     dotnet pack ./src/BlaziatR.Server/BlaziatR.Server.csproj --output $(Build.ArtifactStagingDirectory)/pre /p:PackageVersion=$(Build.BuildNumber)
   displayName: 'Create prerelease packages'
 
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   displayName: 'Push prerelease packages'
   inputs:
     command: 'push'
