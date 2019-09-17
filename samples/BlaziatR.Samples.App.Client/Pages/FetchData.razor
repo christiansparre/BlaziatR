@@ -39,8 +39,8 @@ else
 @functions {
     WeatherForecast[] forecasts;
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
-        forecasts = await Blaziator.Send(new GetWeatherForecast(), "http://localhost:56265/_blaziatr");
+        forecasts = await Blaziator.Send(new GetWeatherForecast(), "https://localhost:5001/_blaziatr");
     }
 }

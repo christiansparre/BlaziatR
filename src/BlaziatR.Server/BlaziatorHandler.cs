@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
-using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -38,7 +38,7 @@ namespace BlaziatR.Server
 
             // If we got this long.. yay!
 
-            var request = await JsonSerializer.ReadAsync(context.Request.Body, requestType);
+            var request = await JsonSerializer.DeserializeAsync(context.Request.Body, requestType);
 
             var wrapper = Activator.CreateInstance(wrapperType, mediator);
 
@@ -56,7 +56,7 @@ namespace BlaziatR.Server
 
             var response = ((dynamic)task).Result;
 
-            var bytes = (byte[])JsonSerializer.ToUtf8Bytes(response, responseType);
+            var bytes = (byte[])JsonSerializer.SerializeToUtf8Bytes(response, responseType);
 
             context.Response.ContentType = "application/json; charset=utf-8";
             context.Response.StatusCode = (int)HttpStatusCode.OK;

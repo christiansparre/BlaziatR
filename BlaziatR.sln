@@ -5,17 +5,17 @@ VisualStudioVersion = 16.0.28917.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{044D9D62-70BC-4821-8B83-35553094711D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaziatR.Client", "src\BlaziatR.Client\BlaziatR.Client.csproj", "{E62D46B0-68FC-42E5-A4F1-EDD9DFCDE93F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlaziatR.Client", "src\BlaziatR.Client\BlaziatR.Client.csproj", "{E62D46B0-68FC-42E5-A4F1-EDD9DFCDE93F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaziatR.Server", "src\BlaziatR.Server\BlaziatR.Server.csproj", "{4CB1564B-0135-4F26-96D7-03F545138692}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlaziatR.Server", "src\BlaziatR.Server\BlaziatR.Server.csproj", "{4CB1564B-0135-4F26-96D7-03F545138692}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{7F39B75B-5420-4E80-BE8E-F8D2E0044110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaziatR.Samples.App.Server", "samples\BlaziatR.Samples.App.Server\BlaziatR.Samples.App.Server.csproj", "{18C65E66-2DC9-4A6E-B911-B77801D89E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlaziatR.Samples.App.Server", "samples\BlaziatR.Samples.App.Server\BlaziatR.Samples.App.Server.csproj", "{18C65E66-2DC9-4A6E-B911-B77801D89E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaziatR.Samples.App.Client", "samples\BlaziatR.Samples.App.Client\BlaziatR.Samples.App.Client.csproj", "{B89DCFBF-8055-447E-B237-10A55279F67B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlaziatR.Samples.App.Client", "samples\BlaziatR.Samples.App.Client\BlaziatR.Samples.App.Client.csproj", "{B89DCFBF-8055-447E-B237-10A55279F67B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlaziatR.Samples.App.Shared", "samples\BlaziatR.Samples.App.Shared\BlaziatR.Samples.App.Shared.csproj", "{4BBE4034-CDC9-431B-89F2-ADFF83A5FA55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlaziatR.Samples.App.Shared", "samples\BlaziatR.Samples.App.Shared\BlaziatR.Samples.App.Shared.csproj", "{4BBE4034-CDC9-431B-89F2-ADFF83A5FA55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
