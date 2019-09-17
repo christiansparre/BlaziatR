@@ -1,5 +1,6 @@
 trigger:
 - master
+- feature/*
 
 variables:
   version: "1.0.0"
@@ -14,7 +15,7 @@ steps:
   displayName: 'Installing .NET Core 3 SDK'
   inputs:
     packageType: 'sdk'
-    version: '3.0.100-preview5-011568'
+    version: '3.0.100-rc1-014190'
     includePreviewVersions: true
 
 - script: |

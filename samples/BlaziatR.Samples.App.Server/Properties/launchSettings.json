@@ -17,11 +17,11 @@
     },
     "BlaziatR.Samples.App.Server": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:56265/"
+      "applicationUrl": "https://localhost:5001/"
     }
   }
 }

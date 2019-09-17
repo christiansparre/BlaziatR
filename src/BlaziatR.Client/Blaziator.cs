@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
@@ -19,7 +19,7 @@ namespace BlaziatR.Client
 
         public async Task<TResponse> Send<TResponse>(IRequest<TResponse> request, string address, CancellationToken cancellationToken = new CancellationToken())
         {
-            var json = JsonSerializer.ToString(request);
+            var json = JsonSerializer.Serialize(request);
 
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, address)
             {
@@ -32,9 +32,9 @@ namespace BlaziatR.Client
 
             httpResponse.EnsureSuccessStatusCode();
 
-            var bytes = await httpResponse.Content.ReadAsByteArrayAsync();
+            var stream = await httpResponse.Content.ReadAsStreamAsync();
 
-            return JsonSerializer.Parse<TResponse>(bytes);
+            return await JsonSerializer.DeserializeAsync<TResponse>(stream);
         }
     }
 }

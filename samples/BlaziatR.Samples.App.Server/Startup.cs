@@ -36,15 +36,18 @@ namespace BlaziatR.Samples.App.Server
                 app.UseDeveloperExceptionPage();
                 app.UseBlazorDebugging();
             }
+            
+            app.UseStaticFiles();
+            app.UseClientSideBlazorFiles<Client.Startup>();
 
             app.UseRouting();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.Map("/_blaziatr", BlaziatorHandler.Handle);
+                endpoints.MapDefaultControllerRoute();
+                endpoints.MapFallbackToClientSideBlazor<Client.Startup>("index.html");
             });
-
-            app.UseBlazor<Client.Startup>();
         }
     }
 }
