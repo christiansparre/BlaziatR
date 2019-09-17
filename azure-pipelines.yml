@@ -1,19 +1,31 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
+
+variables:
+  version: "1.0.0"
+  
+name: $(version)-$(Date:yyyyMMdd)$(Rev:.rrr)-$(Build.SourceBranchName)
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: UseDotNet@2
+  displayName: 'Installing .NET Core 3 SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '3.0.100-preview5-011568'
+    includePreviewVersions: true
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    dotnet pack ./src/BlaziatR.Client/BlaziatR.Client.csproj --output $(Build.ArtifactStagingDirectory)/pre /p:PackageVersion=$(Build.BuildNumber)
+    dotnet pack ./src/BlaziatR.Server/BlaziatR.Server.csproj --output $(Build.ArtifactStagingDirectory)/pre /p:PackageVersion=$(Build.BuildNumber)
+  displayName: 'Create prerelease packages'
+
+- task: NuGetCommand@2
+  displayName: 'Push prerelease packages'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/pre/*.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'MyGet - sparre.io - ci'
